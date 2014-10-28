@@ -63,9 +63,9 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 		<?php endif; ?>
 
 		<?php foreach ( WC()->cart->get_coupons( 'order' ) as $code => $coupon ) : ?>
-			<tr class="order-discount coupon-<?php echo esc_attr( $code ); ?>">
-				<th><?php wc_cart_totals_coupon_label( $coupon ); ?></th>
-				<td><?php wc_cart_totals_coupon_html( $coupon ); ?></td>
+			<tr class="basket_totals_container order-discount coupon-<?php echo esc_attr( $code ); ?>">
+				<th class ="basket_totals_label"><?php cbc_cart_totals_coupon_label( $coupon ); ?></th>
+				<td class ="basket_totals_amount"><?php cbc_cart_totals_coupon_html( $coupon ); ?></td>
 			</tr>
 		<?php endforeach; ?>
 

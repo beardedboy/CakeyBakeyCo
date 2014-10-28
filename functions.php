@@ -411,6 +411,10 @@ function cakeybakeyco_setup(){
 
 	remove_action('woocommerce_before_single_product_summary','woocommerce_show_product_sale_flash', 10);
 
+	//Moves the notices with the main section of the page
+	remove_action('woocommerce_before_single_product', 'wc_print_notices', 10);
+	add_action ('woocommerce_before_single_product_summary', 'wc_print_notices', 10);
+
 	remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_sharing', 50 );
 	remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10 );
 	remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20 );
@@ -444,6 +448,8 @@ function cakeybakeyco_setup(){
     function cbc_basket(){
     	do_action('cbc_header');
     }
+
+
 
 	function cbc_cart_totals_coupon_html( $coupon ) {
 		if ( is_string( $coupon ) ) {
