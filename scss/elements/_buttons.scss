@@ -1,0 +1,73 @@
+.btn, .btn_flat, .btn_buy{
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+	background-color: $pink;
+	color: white;
+	border-radius: 0.2777777777777778em; //5px;
+	font-size: $base;
+	font-size: $h4;
+	font-weight: 700;
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	text-decoration: none;
+	padding:  0.2777777777777778em 0.8333333333333333em; //5px 15px;
+	margin: 0.5555555555555556em; //10px;
+}
+
+.btn{
+		-webkit-box-shadow: 0px 5px 0px $darkpink;
+        -moz-box-shadow: 0px 5px 0px $darkpink;
+        box-shadow: 0px 5px 0px $darkpink;
+	text-decoration: none;
+	&:hover, &:active{
+		//border-bottom: none;
+		-webkit-box-shadow: 0px 1px 0px $darkpink;
+        -moz-box-shadow: 0px 1px 0px $darkpink;
+        box-shadow: 0px 1px 0px $darkpink;
+
+	    -ms-transform: translateY(4px);
+		-webkit-transform: translateY(4px);
+		transform: translateY(4px);
+		text-decoration: none;
+	}
+}
+
+.btn-sm{
+	font-size: $h5;
+}
+
+
+.btn-lg{
+	font-size: $h3;
+	&:hover{
+	}
+}
+
+.btn_basket{
+	position: relative;
+	top: -3px;
+}
+
+.buy_basket_icon:after{
+	display: block;
+	@include min-screen($sm-product-bp){
+		display: inline;
+		padding-right: 0.16666667em;
+	}
+}
+
+
+
+.btn_flat, .btn_buy{
+    margin: 0;
+    border: 1px solid $darkpink;
+    &:hover{
+        background-color: $darkpink;
+    }
+}
+
+.btn_flat-full{
+	width: 100%;
+}

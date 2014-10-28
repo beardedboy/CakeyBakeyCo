@@ -1,0 +1,17 @@
+#login h1 a { 
+	background-image: url("../img/deploy/svg/main-logo.svg") !important; 
+	background-size: 200px !important;
+	width: 200px !important;
+}
+
+.wp-core-ui .button-primary{
+	background: #e68a9e;
+	border-color: #e06d86;
+	box-shadow: inset 0 1px 0 #e68a9e,0 1px 0 rgba(0,0,0,.15);
+}
+
+.wp-core-ui .button-primary:hover{
+	background: #e06d86;
+	border-color: #e06d86;
+	box-shadow: inset 0 1px 0 #e68a9e,0 1px 0 rgba(0,0,0,.15);;
+};

@@ -1,0 +1,107 @@
+/* ==========================================================================
+   Base Grid System
+   ========================================================================== */
+
+// base grid styles
+
+.container{
+	@extend %clearfix;
+	max-width: $container-width;
+	margin: 0 auto;
+	background-color: white;
+}
+
+.slide-left{
+	right: 18em;
+}
+
+.row{
+	@extend %clearfix;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+}
+
+.row-nopadding{
+	padding: 0;
+}
+
+.main_content, .main_content-basket{
+	background-color: white;
+	width: 100%;
+	padding: 2.828em 4%;
+	margin: 0 auto;
+	min-height: 100%;
+}
+
+.main_content{
+	@include min-screen(47.5em){
+		padding-left: 0;
+		padding-right: 0;
+		max-width: $sm-content-width;
+	}
+}
+
+.main_content-large{
+	@include min-screen(27.75em){
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+.main_content-basket{
+	@include min-screen(47.5em){
+	}
+}
+
+[class*='col-']{
+	margin: 0 $col-margin $col-margin $col-margin;
+	width: 100%;
+	//background-color: #ccc;
+	@include min-screen($sm-bp){
+		float: left;
+		margin: 0 0 1.6% $col-margin;
+	}
+	&:first-child{
+		margin-left: 0;
+	}
+}
+
+
+@include min-screen($extsm-bp){}// end extra small media query
+
+@include min-screen($sm-bp){
+
+
+}// end small media query
+
+@include min-screen(47.5em){
+	
+	.container{
+		padding: 0 1em;
+	}
+
+	@for $i from 1 through $cols {
+		$val: (100% - (($cols - 1) * $col-margin)) / $cols;
+
+	  	.col-#{$i}-#{$cols} { 
+	  		width: ($val * $i) + ($col-margin * ($i - 1)); 
+	  	}
+	}
+	
+	.main_content-large{
+		max-width: $md-content-width;
+	}
+
+}// end medium media query
+
+@include min-screen(57.5em){
+	.main_content-basket{
+		max-width: $md-content-width;
+	}
+}
+
+@include min-screen($lrg-bp){
+} // end large media query
+
+@include min-screen($extlrg-bp){} //end extra large media query

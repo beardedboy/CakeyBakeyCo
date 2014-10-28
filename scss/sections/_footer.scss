@@ -1,0 +1,96 @@
+.main_footer{
+	width: 100%;
+	border-top: 3px solid $black;
+	padding: 0;
+	background-color: $white;
+	@include min-screen($sm-bp){
+		padding: 2em 0 0 0;
+	}
+}
+
+.main_footer_row, .main_footer_row-last{
+	padding: 0 2em;
+}
+
+.main_footer_row-last{
+	display: table;
+	padding-top: 3em;
+}
+
+.main_footer_left_col{
+	width: 100%;
+	position: relative;
+	padding: 2.5em 0;
+	@include min-screen(37.5em){
+		padding: 0;
+		width: 30%;
+		float: left;
+		margin-bottom: 0;
+	}
+}
+
+.main_footer_contact_title{
+	text-align: left;
+	margin-bottom: .3em;
+	padding-top: 0.3125em;
+	@include min-screen(37.5em){
+		padding-top: 0;
+	}
+}
+
+.main_footer_right_col{
+	width: 100%;
+	position: relative;
+	margin: 0;
+	@include min-screen(37.5em){
+		width: 70%;
+		float: right;
+	}
+	@include min-screen(46.875em){
+		width: 56.66667%;
+	}
+}
+
+.main_footer_logo{
+	width: 150px;
+}
+
+.main_footer_copyright{
+	width: 100%;
+	font-size: 0.75em;
+	padding-bottom: 1.875em;
+	@include min-screen($sm-bp){
+		width: 50%;
+		display: table-cell;
+		vertical-align: bottom;
+		padding-bottom: 1.875em;
+	}
+}
+
+
+.main_footer_paypal{
+	@include min-screen($sm-bp){
+		display: table;
+		margin: 0 auto;
+		float: right;
+	}
+}
+
+.main_footer_paypal_title{
+	display: none;
+	@include min-screen($sm-bp){
+		display: table-cell;
+		vertical-align: middle;
+		font-size: 0.75em;
+		padding-right: 10px;
+	}
+}
+
+.main_footer_paypal_logo{
+	width: 200px;
+	float: left;
+	margin-bottom: 0.625em;
+	@include min-screen($sm-bp){
+		float: left;
+	}
+}

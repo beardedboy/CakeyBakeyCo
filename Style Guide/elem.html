@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js lt-ie10"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="../css/styleguide/sg.css">
+        <script src="../js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+        <header class="sg sg_header">
+            <h1 class = "sg sg_h1 left">Style Guide</h1>
+            <h2 class = "sg sg_h2 right">Cakey Bakey Co</h2>
+        </header>
+        <section class = "sg sg_container">
+            <nav class = "sg sg_nav">
+                <ul class = "sg sg_nav_list">
+                    <li class = "sg sg_nav_list_item"><a href = "index.html">Branding</a></li>
+                    <li class = "sg sg_nav_list_item"><a href = "type.html">Type</a></li>
+                    <li class = "sg sg_nav_list_item"><a href = "nav.html">Navigation</a></li>
+                    <li class = "sg sg_nav_list_item"><a href = "elem.html">Elements</a></li>
+                    <li class = "sg sg_nav_list_item"><a href = "comp.html">Components</a></li>
+                    <li class = "sg sg_nav_list_item"><a href = "grid.html">Grid</a></li>
+                </ul>
+            </nav>
+            <section class = "sg_main_content sg_mid_width">
+                
+                <h2 class ="sg sg_section_header">Elements</h2>
+
+                <section class = "sg_section">
+
+                    <h3 class ="sg sg_section_subheader">Responsive Image</h3>
+
+                    <picture>
+                        <!--[if IE 9]><video style="display: none;"><![endif]-->
+                        <source media="(min-width: 600px)" srcset="img/img1x813.png, img/img1x1626.png 2x">
+                        <source media="(min-width: 320px)" srcset="img/img1x600.png">
+                        <img src="img/img1x400.png" alt="">
+                        <!--[if IE 9]></video><![endif]-->
+                    </picture>
+
+
+                    <!--<img src="img/img1x400.png" srcset="img/img1x400.png 1x, img/img1x1626.png 2x, portrait-cropped-sm.jpg 600w, img/img1x813.png 813w">-->
+                </section>
+                <section class = "sg_section">
+
+                    <h3 class ="sg sg_section_subheader">Buttons</h3>
+                    <div class = "row">
+                        <div class = "col-12-12">
+                            <div class = "btn">Buy</div>
+                            <span class = "btn">Add</span>
+                            <a href = "#" class = "btn">
+                                <span class = "icon-basket btn_basket"></span>
+                                Cart
+                            </a>
+                        </div>
+                    </div>
+                    <div class = "row">
+                        <div class = "col-12-12">
+                            <div class = "btn btn-sm">Buy</div>
+                            <span class = "btn btn-sm">Add</span>
+                            <a href = "#" class = "btn btn-sm">
+                                <span class = "icon-basket btn_basket"></span>
+                                Cart
+                            </a>
+                        </div>
+                    </div>
+                    <div class = "row">
+                        <div class = "col-12-12">
+                            <div class = "btn btn-lg">Buy</div>
+                            <span class = "btn btn-lg">Add</span>
+                            <a href = "#" class = "btn btn-lg">
+                                <span class = "icon-basket btn_basket"></span>
+                                Cart
+                            </a>
+                        </div>
+                    </div>
+
+                </section>
+
+                <section class = "sg_section">
+
+                    <h3 class ="sg sg_section_subheader">Badges</h3>
+
+                    <span class = "badge">1</span>
+
+                </section>
+
+                 <section class = "sg_section">
+
+                    <h3 class ="sg sg_section_subheader">Horizontal Rules</h3>
+
+                    <hr class = "hr">
+
+                    <hr class = "hr hr-double">
+
+                    <hr class = "hr hr-thick">                    
+
+                </section>
+
+                <section class = "sg_section">
+                    <h3 class ="sg sg_section_subheader">Tooltips</h3>
+                    <section class ="sg_section_tooltip_container">
+                        <div class = "tooltip tooltip_left">Please make sure your email is entered correctly.</div>
+                        <div class = "tooltip tooltip_right">Please make sure your email is entered correctly.</div>
+                        <div class = "tooltip tooltip_top">Please make sure your email is entered correctly.</div>
+                        <div class = "tooltip tooltip_bottom">Please make sure your email is entered correctly.</div>
+                    </section>
+                </section>
+
+                <section class = "sg_section">
+                    <h3 class ="sg sg_section_subheader">Inputs</h3>
+                    
+                    <form class = "form">
+                        <div class = "form_group">
+                            <label for="textinput" class = "col-3-12 form_label">First Name</label>
+                            <div class = "col-9-12 form_input_group">
+                                <input type="text" class = "form_input" id = "textinput" name="firstname" placeholder ="Let us know your first name">
+                                <span class = "form_input-icon"></span>
+                            </div><!-- end col-12-16 -->
+                        </div><!-- end form_group -->
+
+                        <div class = "form_group">
+                            <label for="request" class = "col-3-12 form_label">Request</label>
+                            <div class = "col-9-12 form_input_group">
+                                <input type="text" class = "form_input form_input-pass" id = "request" name="request">
+                                <span class = "form_input-icon icon-success"></span>
+                            </div><!-- end col-12-16 -->
+                        </div><!-- end form_group -->
+
+                        <div class = "form_group">
+                            <label for="email" class = "col-3-12 form_label">Email</label>
+                            <div class = "col-9-12 form_input_group">
+                                <input type="email" class = "form_input form_input-error" id ="email" name="email" required>
+                                <span class = "form_input-icon icon-alert"></span>
+                                <div class = "tooltip tooltip_left">Please make sure your email is entered correctly.</div>
+                            </div><!-- end col-12-16 -->
+                        </div><!-- end form_group -->
+                        
+                        <div class = "form_group">
+                            <div class = "form_group-container">
+                                    <label class = "col-3-12 form_label">Delivery Method</label>
+                                
+                                <div class = "col-9-12 form_input_group">
+                                    <div class = "form_group form_group-radio">
+                                        <input type="radio" class = "form_input form_input-radio" name="delivery" id="delivery" value="Delivery">
+                                        <label for="delivery" class = "form_label form_label-radio">Delivery</label>
+                                    </div><!-- end form_group -->
+
+                                    <div class = "form_group form_group-radio">
+                                        <input type="radio" class = "form_input form_input-radio" name="delivery" id= "collection" value="Collection">
+                                        <label for="collection" class = "form_label form_label-radio">Collection</label>
+                                    </div><!-- end form_input_group -->
+                                </div><!-- end col-12-16 -->                
+                            </div><!-- form_group-container -->
+                        </div><!-- end form_group -->
+
+                        <div class = "form_group">
+                            <label for="comment" class = "col-3-12 form_label">Comment</label>
+                            <div class = "col-9-12 form_input_group">
+                                <textarea class = "form_input form_input-textarea form_input-error" id ="comment" name="comment"></textarea>
+                                <span class = "form_input-icon icon-alert"></span>
+                                <div class = "tooltip tooltip_left">Please make sure your email is entered correctly.</div>
+                            </div><!-- end col-12-16 -->
+                        </div><!-- end form_group -->
+
+
+                        <div class = "form_group">
+                            <label for="request" class = "col-3-12 form_label">Postcode</label>
+                            <div class = "col-9-12 form_input_group">
+                                <div class = "form_dropdown_container">
+                                    <select class = "form_input form_input-inline form_input-dropdown">
+                                        <option>BS1</option>
+                                        <option>BS2</option>
+                                        <option>BS3</option>
+                                        <option>BS4</option>
+                                        <option>BS5</option>
+                                    </select>
+                                    <span class = "form_icon-dropdown"></span>
+                                </div>
+                                <input type="text" class = "form_input form_input-inline" id = "textinput" name="firstname">
+                            </div><!-- end col-12-16 -->
+                        </div><!-- end form_group -->
+  
+
+                    </form><!-- end form -->
+
+                </section>
+
+            </section>
+        </section>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="../js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+
+        <script src="../js/build/main.js"></script>
+        <script src="../js/vendor/picturefill.min.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>
+    </body>
+</html>

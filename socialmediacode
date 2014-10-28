@@ -1,0 +1,33 @@
+<link href="[profile_url]" rel="publisher" />  <!-- links to Google+ page -->
+
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="product">
+<meta name="twitter:site" content="@CakeyBakeyCo">
+<meta name="twitter:creator" content="@CakeyBakeyCo">
+<meta name="twitter:domain" content="cakeybakey.co">
+<meta name="twitter:title" content="Coconut & Lime Cupcake">
+<meta name="twitter:image:src" content="http://cakeybakeyco/coconutlimecake.jpg">
+<meta name="twitter:image:width" content="800px"> <!-- optional -->
+<meta name="twitter:image:height" content="800px"><!-- optional -->
+<meta name="twitter:description" content="A yummy cake blah blah....">
+<meta name="twitter:label1" content="Sizes">
+<meta name="twitter:data1" content="Box of 6 (Large) | Box of 24 ( Small )">
+<meta name="twitter:label2" content="Price">
+<meta name="twitter:data2" content="£10">
+
+
+<!-- Open Graph data -->
+<meta property="og:title" content="Coconut & Lime Cupcake" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://cakeybakey.co" />
+<meta property="og:image" content="http://cakeybakeyco/coconutlimecake.jpg" />
+<meta property="og:description" content="A yummy cake blah blah...." />
+<meta property="og:site_name" content="CakeyBakey Co" />
+<meta property="og:price:amount" content="10.00" />
+<meta property="og:price:currency" content="GBP" />
+
+itemprop="name"
+itemprop="description"
+itemprop="image"
+itemprop = "brand"
+itemprop = "category" //

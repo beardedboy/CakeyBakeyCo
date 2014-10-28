@@ -1,0 +1,47 @@
+.main_header{
+	@extend %clearfix;
+	max-width: $container-width;
+	margin: 0 auto;
+	background-color: $white;
+
+	@include min-screen(35em){
+		position: relative;
+		border: none;
+		padding: 0 4%;
+	}
+}
+
+.main_header_row{
+	width: 100%;
+}
+
+.main_header_row-header, .main_header_row-nav{
+	@extend %clearfix;
+	margin-bottom: 0;
+	@include min-screen($sm-bp){
+		float: none;
+	}
+}
+
+.main_header_row-header{
+	width: 100%;
+	position: relative;
+	z-index: 99999;
+	background-color: white;
+	@include min-screen(35em){
+	}
+	@include min-screen(47.5em){
+		padding: 1.414em 0 1.8em 0;
+	}
+}
+
+
+.main_header_row-nav{
+	width: 50%;
+}
+
+@include min-screen($sm-bp){
+	.main_header_row-header, .main_header_row-nav{
+		width: 100%;	
+	}
+}

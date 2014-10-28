@@ -1,0 +1,201 @@
+/*-----------------------------------------------------
+ 	FORM
+----------------------------------------------------- */
+
+.form{
+	font-size: 0.7777777777777778rem;
+	@extend %clearfix;
+}
+
+.form_label{
+	display: inline;
+	vertical-align: middle;
+	text-align: right;
+	margin: 0;
+	padding: 0.5em 1em 0.5714285714285714em 0.5714285714285714em;
+}
+
+.form_input{
+	display: inline;
+	width: 100%;
+	border: 1px solid $black;
+	padding: 0.5714285714285714em 2em 0.5714285714285714em 0.5714285714285714em;
+    border-radius: 0;
+    vertical-align: middle;
+    &:focus{
+    	border: 1px solid $blue;
+		outline: 5px solid $blue-05;
+	}
+}
+
+.form_input-inline{
+	display: inline-block;
+	width: auto;
+}
+
+.form_group{
+	@extend %clearfix;
+	padding: 0.5714285714285714em 0;
+}
+
+.form_group-radio{
+	padding-top: 0; 
+	&:first-child{
+		padding-top: 0.5714285714285714em;
+	}
+}
+
+
+.form_group-container{
+	@extend %clearfix;
+	border: 1px solid $black;
+	padding: 0.5714285714285714em 0;
+}
+
+.form_input_group{
+	position: relative;
+	margin: 0;
+}
+
+
+
+
+
+/*---------------- FORM ELEMENTS ---------------------- */
+
+
+.form_label-radio{
+}
+
+.form_input-radio{
+	width: auto;
+	border: none;
+	&:focus{
+		border: none;
+		outline: none;
+	}
+}
+
+.form_input-textarea{
+	min-height: 10em;
+	max-height: 20em;
+}
+
+
+/*---------------- DROPDOWN SELECT STYLES ---------------------- */
+
+
+
+.form_dropdown_container{
+	position: relative;
+	display: inline-block;
+}
+
+.form_input-dropdown{
+	position: relative;
+	z-index: 99999;
+	background-color: transparent;
+	-webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    text-indent: 0.01px;
+    text-overflow: '';
+    outline: none;
+    border: 0;
+    padding: 0.5em 3em 0.5em 0.5714285714285714em; //7px 8px
+    border: 1px solid $black;
+	margin-right: 0.9092857142857143em; //12.73px
+    &::-ms-expand{
+  		display:none;
+	}
+}
+
+
+.form_icon-dropdown{
+
+	position: absolute;
+	top: 0;
+	right: 1em;
+	display: inline-block;
+	width: 2em;
+	height: 2.2em;
+	background-image: url("../img/icon-dropdown.svg");
+	background-repeat: no-repeat;
+	background-position:center;
+	background-size: 14px 25px;
+	border-left: 1px solid $grey;
+}
+
+/*---------------- DROPDOWN SELECT STYLES ---------------------- */
+
+.form_input-number{
+	position: relative;
+	background-color: transparent;
+	-webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    text-indent: 0.01px;
+    text-overflow: '';
+    outline: none;
+    border: 0;
+    padding: 0.5em 0; //7px 8px
+    border: 1px solid $black;
+    &::-ms-expand{
+  		display:none;
+	}
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+
+
+
+/*---------------- FORM VALIDATION ---------------------- */
+
+.form_input-error{
+	border: 1px solid $red;
+	&:focus{
+		border: 1px solid $red;
+		outline: 5px solid $red-05;
+	}
+}
+
+
+.form_input-pass{
+		border: 1px solid $green;
+	&:focus{
+		border: 1px solid $green;
+		outline: 5px solid $green-05;
+	}
+	&:after{
+		content: "Hello";
+		z-index: 99999;
+	}
+}
+
+.form_input-warning{
+
+}
+
+.form_input_group{}
+
+
+.form_input-icon{
+	position: absolute;
+	right: 0.2142857142857143em;
+	top: 0;
+	font-size: 1.4em;
+}
+
+.icon-success{
+	color: $green;
+}
+
+.icon-alert{
+	color: $red;
+}
