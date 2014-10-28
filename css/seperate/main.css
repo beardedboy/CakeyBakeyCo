@@ -2124,7 +2124,7 @@ img {
 }
 .product_link {
   display: block;
-  padding: 1em 0;
+  padding: 0 0 2em 0;
 }
 .product_link:hover .product_container_info_title {
   color: #e68a9e;
@@ -2628,15 +2628,16 @@ img {
   padding: 2em 0 .707em 0;
 }
 .basket_item:first-child {
-  padding-top: .5em;
-}
-.basket_item:last-child {
-  border-bottom: none;
+  padding-top: 0;
 }
 @media only screen and (min-width: 30em) {
   .basket_item {
     display: table-row;
     border-bottom: 1px solid black;
+    padding: 0;
+  }
+  .basket_item:last-child {
+    border-bottom: none;
   }
 }
 

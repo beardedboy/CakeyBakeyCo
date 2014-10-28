@@ -40,14 +40,15 @@
         border-bottom: 2px solid $black;
         padding: 2em 0 .707em 0;
         &:first-child{
-            padding-top: .5em;
-        }
-        &:last-child{
-            border-bottom: none;
+            padding-top: 0;
         }
         @include min-screen(30em){
             display: table-row;
             border-bottom: 1px solid $black;
+            padding: 0;
+            &:last-child{
+                border-bottom: none;
+            }
         }
     }
 

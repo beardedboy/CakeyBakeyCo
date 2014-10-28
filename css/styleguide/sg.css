@@ -2157,15 +2157,16 @@ img {
   padding: 2em 0 .707em 0;
 }
 .basket_item:first-child {
-  padding-top: .5em;
-}
-.basket_item:last-child {
-  border-bottom: none;
+  padding-top: 0;
 }
 @media only screen and (min-width: 30em) {
   .basket_item {
     display: table-row;
     border-bottom: 1px solid black;
+    padding: 0;
+  }
+  .basket_item:last-child {
+    border-bottom: none;
   }
 }
 
