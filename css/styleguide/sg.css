@@ -651,6 +651,10 @@ textarea {
 /* ==========================================================================
    Base Grid System
    ========================================================================== */
+.woocommerce {
+  padding-top: .6em;
+}
+
 .container {
   max-width: 65em;
   margin: 0 auto;
@@ -2153,21 +2157,19 @@ img {
 }
 
 .basket_item {
-  border-bottom: 2px solid black;
+  border-top: 2px solid black;
   padding: 2em 0 .707em 0;
-}
-.basket_item:first-child {
-  padding-top: 0;
 }
 @media only screen and (min-width: 30em) {
   .basket_item {
     display: table-row;
-    border-bottom: 1px solid black;
+    border-top: 1px solid black;
     padding: 0;
   }
-  .basket_item:last-child {
-    border-bottom: none;
-  }
+}
+
+.basket_item:first-child {
+  border-top: none;
 }
 
 .basket_item_details {
@@ -2374,6 +2376,7 @@ img {
   width: 100%;
   background-color: whitesmoke;
   padding: 1.414em 0;
+  border-top: 2px solid black;
   border-bottom: 2px solid black;
 }
 
@@ -2391,7 +2394,7 @@ img {
   .basket_controls_coupon {
     width: 37.5%;
     float: left;
-    margin: 3em 0;
+    margin: 2.65em 0;
     margin-right: 10%;
   }
 }

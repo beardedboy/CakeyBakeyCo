@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 wc_print_notices();
 
-do_action( 'woocommerce_before_cart' ); ?>
+ ?>
 
 <form action="<?php echo esc_url( WC()->cart->get_cart_url() ); ?>" method="post">
 
@@ -136,7 +136,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 
 	<?php woocommerce_cart_totals(); ?>
 
-	<!--<?php woocommerce_shipping_calculator(); ?> -->
+	<?php woocommerce_shipping_calculator(); ?>
 
 				<input type="submit" class="wc-forward btn_flat basket_controls_checkout" name="proceed" value="<?php _e( 'Proceed to Checkout', 'woocommerce' ); ?>" />
 

@@ -884,7 +884,7 @@ function cakeybakeyco_setup(){
 		WOOCOMMERCE SETUP FUNCTIONS
 	*/
 	function cbc_wrapper_start() {
-		if(is_shop() || is_product_tag()){
+		if(is_shop() || is_product_tag() || is_product() ){
 			echo '<section class="main_content main_content-large">';
 		}
 		else{

@@ -4,6 +4,10 @@
 
 // base grid styles
 
+.woocommerce{
+	padding-top: .6em;
+}
+
 .container{
 	@extend %clearfix;
 	max-width: $container-width;

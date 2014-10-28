@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 	 	return;
 	 }
 ?>
-<section class = "main_content main_content-large">
+<!--<section class = "main_content main_content-large">-->
 <div itemscope itemtype="<?php echo woocommerce_get_product_schema(); ?>" id="product-<?php the_ID(); ?>  " <?php post_class('row single_product'); ?>>
 
 	<?php
@@ -74,6 +74,6 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 </div><!-- #product-<?php the_ID(); ?> -->
 
-</section>
+<!--</section>-->
 
 <?php do_action( 'woocommerce_after_single_product' ); ?>

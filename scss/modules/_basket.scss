@@ -37,20 +37,19 @@
     }
 
     .basket_item{
-        border-bottom: 2px solid $black;
+        border-top: 2px solid $black;
         padding: 2em 0 .707em 0;
-        &:first-child{
-            padding-top: 0;
-        }
         @include min-screen(30em){
             display: table-row;
-            border-bottom: 1px solid $black;
+            border-top: 1px solid $black;
             padding: 0;
-            &:last-child{
-                border-bottom: none;
-            }
         }
     }
+
+    .basket_item:first-child{
+        border-top: none;
+    }
+
 
     .basket_item_details{
         margin-bottom: .707em;
@@ -227,6 +226,7 @@
         width: 100%;
         background-color: rgb(245, 245, 245);
         padding: 1.414em 0;
+        border-top: 2px solid $black;
         border-bottom: 2px solid $black;
         @extend %clearfix;
     }
@@ -244,7 +244,7 @@
         @include min-screen(47.5em){
             width: 37.5%;
             float: left;
-            margin: 3em 0;
+            margin: 2.65em 0;
             margin-right: 10%;
         }
     }
