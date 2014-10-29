@@ -44,9 +44,6 @@ get_header( 'shop' ); ?>
 
 
 
-		<?php do_action( 'woocommerce_archive_description' ); ?>
-
-
 
 		<?php if ( have_posts() ) : ?>
 
@@ -70,20 +67,25 @@ get_header( 'shop' ); ?>
 			<?php woocommerce_product_loop_start(); ?>
 
 
+		<?php $args = array(
+			'post_type' => 'product',
+			'posts_per_page' => 12,
+			'product_cat' => 'cupcakes'
 
-				<?php woocommerce_product_subcategories(); ?>
+			);
+		$loop = new WP_Query( $args );
+		if ( $loop->have_posts() ) {
+			while ( $loop->have_posts() ) : $loop->the_post();
+				woocommerce_get_template_part( 'content', 'product' );
+			endwhile;
+		} else {
+			echo __( 'No products found' );
+		}
+		wp_reset_postdata();
+
+		?>
 
 
-
-				<?php while ( have_posts() ) : the_post(); ?>
-
-
-
-					<?php wc_get_template_part( 'content', 'product' ); ?>
-
-
-
-				<?php endwhile; // end of the loop. ?>
 
 
 
