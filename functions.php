@@ -489,6 +489,18 @@ function cakeybakeyco_setup(){
 
 
 
+	function cbc_checkout_totals_shipping_html() {
+	     $packages = WC()->shipping->get_packages();
+	 
+	    foreach ( $packages as $i => $package ) {
+	        $chosen_method = isset( WC()->session->chosen_shipping_methods[ $i ] ) ? WC()->session->chosen_shipping_methods[ $i ] : '';
+	 
+	         wc_get_template( 'checkout/checkout-shipping.php', array( 'package' => $package, 'available_methods' => $package['rates'], 'show_package_details' => ( sizeof( $packages ) > 1 ), 'index' => $i, 'chosen_method' => $chosen_method ) );
+	    }
+	}
+
+
+
 
 	// Our hooked in function - $address_fields is passed via the filter!
 	function cbc_override_default_address_fields( $address_fields ) {

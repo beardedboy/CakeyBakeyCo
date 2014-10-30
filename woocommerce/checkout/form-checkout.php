@@ -38,7 +38,7 @@ $get_checkout_url = apply_filters( 'woocommerce_get_checkout_url', WC()->cart->g
 			</div>
 
 			<div class="col-6-12">
-				<h3 id="order_review_heading" class = "h3"><?php _e( 'Your order', 'woocommerce' ); ?></h3>
+				<h3 id="order_review_heading" class = "h3"><?php _e( 'Your order summary', 'woocommerce' ); ?></h3>
 				<?php do_action( 'woocommerce_checkout_order_review' ); ?>
 			</div>
 

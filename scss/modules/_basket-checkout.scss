@@ -660,3 +660,62 @@
     Checkout: Styling for the checkout page
 
    ***********************************************************************************/ 
+
+
+   .order_review{
+        width: 100%;
+        border: 1px solid $black;
+        margin-bottom: 1.414em;
+   }
+
+   .order_review_header, .order_review_item{
+    border-bottom: 1px solid $black;
+   }
+
+   .order_review_header{
+        background-color: rgb(245, 245, 245);
+   }
+
+   .order_review_header-name, .order_review_header-quantity, 
+   .order_review_header-total, .order_review_item-name, .order_review_item-quantity, .order_review_item-total{
+        padding: .5em 1em;
+   }
+
+   .order_review_header-name{
+    width: 40%;
+    text-align: left;
+   }
+
+   .order_review_header-quantity{
+    width: 25%;
+   }
+
+   .order_review_header-total{
+    width: 25%;
+    text-align: right;
+   }
+
+    .order_review_item-name{
+    }
+
+    .order_review_item-quantity{
+        text-align: center;
+    }
+
+    .order_totals{}
+
+    .order_totals_label, .order_totals_amount{
+        padding: .5em 1em;
+    }
+
+    .order_totals_label{
+        border-right: 1px solid $black;
+        text-align: left;
+    }
+
+    .order_review_item-total, .order_totals_amount{
+        text-align: right;
+    }
+
+
+
