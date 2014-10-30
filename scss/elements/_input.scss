@@ -3,21 +3,24 @@
 ----------------------------------------------------- */
 
 .form{
-	font-size: 0.7777777777777778rem;
+	font-size: 1em;
 	@extend %clearfix;
 }
 
-.form_label{
+.form_element{display: block}
+
+.form_element_label{
 	display: inline;
 	vertical-align: middle;
-	text-align: right;
+	text-align: left;
 	margin: 0;
-	padding: 0.5em 1em 0.5714285714285714em 0.5714285714285714em;
+	font-size: 1em;
+	//padding: 0.5em 1em 0.5714285714285714em 0.5714285714285714em;
 }
 
-.form_input{
+.form_element_input{
 	display: inline;
-	width: 100%;
+	//width: 100%;
 	border: 1px solid $black;
 	padding: 0.5714285714285714em 2em 0.5714285714285714em 0.5714285714285714em;
     border-radius: 0;
@@ -28,7 +31,11 @@
 	}
 }
 
-.form_input-inline{
+.form_element_select{
+	padding: 0.5714285714285714em 2em 0.5714285714285714em 0.5714285714285714em;
+}
+
+.form_element_input-inline{
 	display: inline-block;
 	width: auto;
 }

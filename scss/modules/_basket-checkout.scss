@@ -1,0 +1,662 @@
+    /***********************************************************************************
+
+    Basket: Styling for the main basket display in the Basket page.
+
+   ***********************************************************************************/ 
+
+    .basket{
+        width: 100%;
+    }
+
+    .basket_title{
+        border-top: 1px solid $black;
+        border-bottom: 1px solid $black;
+        display: none;
+        @include min-screen(30em){
+            display: table-header-group;
+        }
+    }
+
+    .basket_title_label{
+        padding: 1em 0;
+        text-align: center;
+    }
+
+    .basket_title_remove{}
+    .basket_title_thumbnail{}
+    .basket_title_name{}
+    .basket_title_price, .basket_title_subtotal{
+        text-align: right;
+    }
+    .basket_title_quantity{}
+
+    .basket_item, .basket_item_details{
+        display: block;
+        @extend %clearfix;
+    }
+
+    .basket_item{
+        border-top: 2px solid $black;
+        padding: 2em 0 .707em 0;
+        @include min-screen(30em){
+            display: table-row;
+            border-top: 1px solid $black;
+            padding: 0;
+        }
+    }
+
+    .basket_item:first-child{
+        border-top: none;
+    }
+
+
+    .basket_item_details{
+        margin-bottom: .707em;
+        padding-bottom: 1.414em;
+        border-bottom: 1px solid $black;
+        @include min-screen(30em){
+            display: table-cell;
+            border-bottom: none;
+            margin: 0;
+            padding: 1em 0;
+            width: 55%;
+        }
+    }
+
+    .basket_item_remove{
+        display: none;
+        @include min-screen(30em){
+            display: table-cell;
+            font-size: 1.2em;
+            text-align: left;
+            width: 5%;
+        }
+    }
+
+    .basket_item_name{
+        padding-left: 1.2em;
+        @include min-screen(30em){
+            padding-left: 0;
+        }
+    }
+
+    .basket_item_remove-mobile{
+        padding-top: .5em;
+        font-size: .8em;
+        @include min-screen(30em){
+            display: none;
+        }
+    }
+
+    .basket_item_thumbnail{
+        padding-top: .2em;
+        width: 15%;
+        @include min-screen(30em){
+            padding-top: 0;
+        }
+        @include min-screen(43.75em){
+            width: 15%;
+        }
+        @include min-screen(47.5em){
+            width: 13%;
+        }
+    }
+
+    .basket_item_thumbnail img{
+        width: 100%;
+    }
+
+    .basket_item_name{
+        width: 65%;
+        @include min-screen(30em){
+            width: auto;
+            padding: 0 1em;
+        }
+    }
+
+    .basket_item_thumbnail, .basket_item_name{
+        float: left;
+        @include min-screen(30em){
+            float: none;
+            padding-top: 0;
+            display: table-cell;
+            vertical-align: inherit;
+        }
+    }
+
+    .basket_item_variation{
+        margin: 0;
+    }
+    .basket_item_variation_label{
+        display: none;
+    }
+    .basket_item_variation_value, .basket_item_variation_value p{
+        margin: 0;
+    }
+
+    .basket_item_price{
+        float: right;
+        width: 15%;
+        text-align: right;
+        font-size: .9em;
+        @include min-screen(30em){
+            float: none;
+            width: auto;
+            font-size: 1em;
+            display: table-cell;
+            vertical-align: inherit;
+        }
+        &:before{
+            font-weight: 700;
+            text-transform: uppercase;
+            content: attr(data-cakeybakeyco-label);
+            @include min-screen(30em){
+                display: none;
+            }
+        }
+    }
+
+    .basket_item_quantity_container, .basket_item_subtotal{
+        height: 45px;
+        line-height: 45px;
+    }
+
+    .basket_item_quantity_container{
+        float: left;
+        @include min-screen(30em){
+            float: none;
+            display: table-cell;
+            width: 30%;
+        }
+    }
+
+    .basket_item_title{
+        display: block;
+        text-align: left;
+        margin-bottom: .25em;
+    }
+
+    .basket_item_quantity{
+    }
+
+    .basket_item_quantity_label{
+        display: none;
+    }
+
+    .basket_item_quantity_input{
+        width: 3.125em;
+        padding: .707em;
+        margin: 0 0 0 .5em;
+        @include min-screen(30em){
+            padding: .5em;
+            margin-right: .707em;
+        }
+    }
+    
+    .basket_item_quantity_button{
+        display: none;
+        @include min-screen(47.5em){
+            display: inline-block;
+            padding: .5em 1em;
+        }
+    }
+
+    .basket_item_subtotal{
+        float: right;
+        @include min-screen(30em){
+            float: none;
+            display: table-cell;
+            text-align: right;
+            width: 10%;
+        }
+        &:before{
+            font-size: .9em;
+            font-weight: 700;
+            padding-right: .5em;
+            content: attr(data-cakeybakeyco-label);
+            @include min-screen(30em){
+                display: none;
+            }
+        }
+    }
+
+    .basket_controls{}
+
+    .basket_controls_update{
+        border-top: 2px solid $black;
+        border-bottom: 2px solid $black;
+        display: block;
+        width: 100%;
+        background-color: rgb(245, 245, 245);
+        padding: 1.414em 0;
+        @extend %clearfix;
+        @include min-screen(30em){
+            border: 1px solid $black;
+        }
+    }
+
+    .basket_totals, .basket_controls_coupon{
+        width: 100%;
+        @extend %clearfix;
+        margin: 2.25em 0;
+        @include min-screen(47.5em){
+            margin: 0;
+        }
+    }
+
+    .basket_controls_coupon{
+        @include min-screen(47.5em){
+            width: 37.5%;
+            float: left;
+            margin: 2.65em 0;
+            margin-right: 10%;
+        }
+    }
+
+    .basket_controls_update_button, .basket_controls_coupon_apply{
+        padding: .5em 1em;
+        font-size: .9em;
+        float: right;
+    }
+
+    .basket_controls_update_button{
+        @include min-screen(30em){
+            margin-right: 2em;
+        }
+    }
+
+    .basket_controls_coupon_label{}
+    .basket_controls_coupon_input{
+        padding: .707em;
+        width: 100%;
+        margin: .707em 0 1em 0;
+    }
+    
+    .basket_controls_checkout{
+        width: 100%;
+        padding: 1em;
+    }
+
+    .basket_controls_coupon_apply{}
+
+    .basket_controls_coupon_remove{
+        font-size: .8em;
+        &:hover{
+            color: $pink;
+        }
+    }
+    
+    .basket_totals{
+        border: 1px solid $black;
+        @include min-screen(47.5em){
+            width: 52.5%;
+            float: left;
+            margin: 3em 0;
+        }
+    }
+
+    .basket_totals_table{
+        width: 100%;
+    }
+
+    .basket_totals_title{
+        display: none;
+    }
+
+    .basket_totals_discount{}
+    .basket_totals_subtotal{}
+
+    .basket_totals_container{
+        width: 100%;
+    }
+
+    .basket_totals_container:nth-child(2n-1){
+        background-color: rgb(245, 245, 245);
+    }
+
+    .basket_totals_label{
+        width: 50%;
+        text-align: right;
+        padding-right: 1em;
+        border-right: 1px solid $black;
+    }
+    .basket_totals_amount{
+        width: 50%;
+        text-align: left;
+        padding-left: 1em;
+    }
+    
+    .basket_totals_label, .basket_total_amount{
+        padding-top: .5em;
+        padding-bottom: .5em;  
+    }
+
+
+    .basket_totals_shipping{}
+
+    .basket_totals_total{}
+
+
+   /***********************************************************************************
+
+    Mini Basket: Styling for the dropdown basket which appears in the main navigation menu
+
+   ***********************************************************************************/ 
+
+    .mini_basket{
+        display: none;
+    }
+
+    .mini_basket_link{
+        display: inline-block;
+        width: 100%;
+        text-decoration: none;
+        font-size: 1.285714285714286em; //18px;
+        line-height: 1.5;
+        &:hover, &:active{
+            color: white;
+            background-color: $pink;
+            .mini_basket_link_icon-mobile{
+                color: $white;
+            }
+            .badge{
+                box-shadow: none;
+                border: none;
+            }
+        }
+    }
+
+    .mini_basket_link-mobile{
+        position: absolute;
+        width: 6.15384615384615em;
+        top: 0;
+        right: 0;
+        font-size: .7em;
+        color: $black;
+        text-align: center;
+        line-height: 6.95692307692308em;
+        padding-top: 1em;
+        &:hover, &:active{
+            color: white;
+            background-color: $pink;
+            .mini_basket_link_icon-mobile{
+                color: $white;
+            }
+        }
+        @include min-screen(35em){
+            width: 5.599625em;
+            line-height: 5.7em;
+            padding-top: 1.5em;
+            font-size: 1em;
+        }
+
+        @include min-screen(47.5em){
+            line-height: 3;
+            margin: 4.5em 0 0 0;
+            padding: 0 1.5em;
+            width: auto;
+            &:hover{
+                border-radius: 0.3125em;
+                border: 1px solid $darkpink;
+            }
+        }
+        @include min-screen(57.5em) {
+            display: none;
+            visibility: hidden; 
+        }
+    }
+
+    .mini_basket_link_icon-mobile{
+        text-decoration: none;
+        padding: 0;
+        color: black;
+        display: block;
+        width: 100%;
+    }
+
+    .mini_basket_link_icon-desktop, .mini_basket_link_title, .mini_basket_badge{
+        display: none;
+        visibility: hidden;
+    }
+
+    .mini_basket_badge-mobile{
+        display: inline;
+        visibility: inherit;
+        font-size: 1em;
+    }
+
+    .mini_basket_list_item{
+        @extend %clearfix;
+    }
+
+    .mini_basket_subtotal{
+        @extend %clearfix;
+    }
+    
+    .mini_basket_empty{}
+
+    .woocommerce-message{
+        text-align: center;
+    }
+
+    .link_view_mini_basket{
+        display: block;
+        width: 100%;
+        padding: .5em;
+        border-radius: .25em;
+        @include min-screen(35em){
+            display: inline;
+        }
+    }
+
+    .product_in_cart_message{
+        background-color: $ultralightgrey;
+        padding: 1em 0 .5em 0;
+        margin: 0 1em;
+        @include min-screen(35em){
+            padding: 1em 0;
+        }
+        @include min-screen(47.5em){
+            margin: 0 0 2.5em 0;
+        }
+    }
+
+    .product_in_cart_message_divider{
+        display: none;
+        padding-left: .5em;
+        @include min-screen(35em){
+            display: inline;
+        }
+    }
+
+
+
+@include min-screen(57.5em) {
+
+
+    .mini_basket_badge{
+        font-size: 1em;
+        display: inline;
+        visibility: inherit;
+        margin-left: .2em;
+    }
+
+    .mini_basket_badge-mobile{
+        display: none;
+        visibility: hidden;
+    }
+
+    .mini_basket{
+        position: absolute;
+        font-size: 1.3em;
+        right: -1px;
+        top: 100%;
+        width: 17em;
+        background-color: $pink;
+        //z-index: -99999;
+        border-top-left-radius: 0.2777777777777778em;
+        border-bottom-right-radius: 0.2777777777777778em;
+        border-bottom-left-radius: 0.2777777777777778em;
+        padding: 1em 0;
+        border: 1px solid $darkpink;
+        box-shadow: 0px 3px 3px rgba(51,51,51,0.2);
+        border-top: none;
+        @include retina-display(){
+            top: 100%;
+        }
+    }
+
+    .mini_basket_link{
+        position: relative;
+        font-size: 1em;
+        padding: .5em 1.5em;
+        text-transform: uppercase;
+        color: $black;
+        text-decoration: none;
+        letter-spacing: 1px;
+        border-left: 1px solid transparent;
+        border-right: 1px solid transparent;
+        border-top: 1px solid transparent;
+        &:hover, &:active{
+            color: white;
+            border-top-left-radius: 0.2777777777777778em;
+            border-top-right-radius: 0.2777777777777778em;
+            background-color: $pink;
+            border-left: 1px solid $darkpink;
+            border-right: 1px solid $darkpink;
+            border-top: 1px solid $darkpink;
+            .mini_basket_badge{
+                margin-left: .3em;
+            }
+            .mini_basket{
+                display: block;
+            }
+            .mini_basket_link_title{
+                color: $white;
+            }
+        }
+    }
+
+    .mini_basket_link_title{
+        display: inline;
+        visibility: inherit;
+        font-size: 1em;
+        line-height: 1.5;
+        display: inline-block;
+        padding: 0;
+        line-height: 1;
+        color: $black; 
+        font-weight: bold;
+        text-decoration: none;
+        &:hover{
+            color: $white;
+        }
+    }
+
+    .mini_basket_link-mobile{
+        display: none;
+        visibility: hidden; 
+    }
+
+    .mini_basket_link_icon-mobile{
+        display: none;
+        visibility: hidden;
+    }
+
+    .mini_basket_link_icon-desktop{
+        display: inline-block;
+        visibility: inherit;
+        z-index: 99999;
+    }
+
+    .mini_basket_empty_title{
+        font-size: 1rem;
+        color: white;
+        letter-spacing: 1px;
+    }
+
+    .mini_basket_list{
+        display: block;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+
+    .mini_basket_list_item{
+        display: block;
+        width: 100%;
+        color: $white;
+        padding: 0.5555555555555556em 1em 0.5555555555555556em 1.5em;
+        border-bottom: 1px solid darken($pink, 5%);
+        &:first-child{
+            margin-top: 0;
+            padding-top: 0;
+        }
+    }
+
+    .mini_basket_list_item_thumb{
+        float: left;
+        margin: .5em 1em 0 0;
+        width: 22%;
+    }
+    
+    .mini_basket_list_item_detail{
+        float: left;
+        text-align: left;
+    }
+
+    .mini_basket_list_item_detail_title{
+        font-size: $h5;
+        margin: 0;
+        text-decoration: none;
+        color: white;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+
+    .mini_basket_list_item_detail_desc{
+        font-size: $h6;
+        font-style: italic;
+        font-weight: 400;
+        margin: 0;
+    }
+
+    .mini_basket_list_item_detail_quantity{
+    }
+
+    .mini_basket_list_item_detail_quantity_title{
+        font-weight: 400;
+        font-size: $h6;
+    }
+
+    .mini_basket_list_item_detail_quantity_amount{
+        font-size: $h6;
+    }
+
+    .mini_basket_subtotal{
+        padding: .5em 1em;
+    }
+
+    .mini_basket_subtotal_label{
+        float: left;
+    }
+
+    .mini_basket_subtotal_value{
+        float: right;
+    }
+
+
+    .mini_basket_footer{
+        padding: 1em 1em 0 1em;
+        border-top: 1px solid darken($pink, 5%);
+    }
+
+}
+
+
+   /***********************************************************************************
+
+    Checkout: Styling for the checkout page
+
+   ***********************************************************************************/ 

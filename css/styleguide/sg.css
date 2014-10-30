@@ -1465,31 +1465,38 @@ textarea {
  	FORM
 ----------------------------------------------------- */
 .form {
-  font-size: 0.7777777777777778rem;
+  font-size: 1em;
 }
 
-.form_label {
+.form_element {
+  display: block;
+}
+
+.form_element_label {
   display: inline;
   vertical-align: middle;
-  text-align: right;
+  text-align: left;
   margin: 0;
-  padding: 0.5em 1em 0.5714285714285714em 0.5714285714285714em;
+  font-size: 1em;
 }
 
-.form_input {
+.form_element_input {
   display: inline;
-  width: 100%;
   border: 1px solid black;
   padding: 0.5714285714285714em 2em 0.5714285714285714em 0.5714285714285714em;
   border-radius: 0;
   vertical-align: middle;
 }
-.form_input:focus {
+.form_element_input:focus {
   border: 1px solid #3498db;
   outline: 5px solid rgba(52, 152, 219, 0.5);
 }
 
-.form_input-inline {
+.form_element_select {
+  padding: 0.5714285714285714em 2em 0.5714285714285714em 0.5714285714285714em;
+}
+
+.form_element_input-inline {
   display: inline-block;
   width: auto;
 }
@@ -2643,14 +2650,6 @@ img {
     box-shadow: 0px 3px 3px rgba(51, 51, 51, 0.2);
     border-top: none;
   }
-}
-@media only screen and (min-width: 57.5em) and (-webkit-min-device-pixel-ratio: 2), only screen and (min-width: 57.5em) and (min--moz-device-pixel-ratio: 2), only screen and (min-width: 57.5em) and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-width: 57.5em) and (min-device-pixel-ratio: 2), only screen and (min-width: 57.5em) and (min-resolution: 192dpi), only screen and (min-width: 57.5em) and (min-resolution: 2dppx) {
-  .mini_basket {
-    top: 100%;
-  }
-}
-
-@media only screen and (min-width: 57.5em) {
   .mini_basket_link {
     position: relative;
     font-size: 1em;
@@ -2793,6 +2792,17 @@ img {
     border-top: 1px solid #e2758d;
   }
 }
+@media only screen and (min-width: 57.5em) and (-webkit-min-device-pixel-ratio: 2), only screen and (min-width: 57.5em) and (min--moz-device-pixel-ratio: 2), only screen and (min-width: 57.5em) and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-width: 57.5em) and (min-device-pixel-ratio: 2), only screen and (min-width: 57.5em) and (min-resolution: 192dpi), only screen and (min-width: 57.5em) and (min-resolution: 2dppx) {
+  .mini_basket {
+    top: 100%;
+  }
+}
+
+   /***********************************************************************************
+
+    Checkout: Styling for the checkout page
+
+   ***********************************************************************************/
 .main_header {
   max-width: 65em;
   margin: 0 auto;
@@ -3253,7 +3263,8 @@ img {
 
   @page {
     margin: 0.5cm;
-  }
+}
+
   p,
   h2,
   h3 {

@@ -442,6 +442,8 @@ function cakeybakeyco_setup(){
 
 	//add_filter('woocommerce_short_description', 'cbc_filter_short_description', 10);
 
+    add_filter( 'woocommerce_default_address_fields' , 'cbc_override_default_address_fields' );
+    add_filter('woocommerce_checkout_fields', 'cbc_checkout_form_fields');
 
     add_action('cbc_header', 'mobileBasket');
 
@@ -483,6 +485,81 @@ function cakeybakeyco_setup(){
 		$coupon = new WC_Coupon( $coupon );
 
 		echo apply_filters( 'woocommerce_cart_totals_coupon_label', esc_html( __( 'Voucher:', 'woocommerce' ) . ' ' . $coupon->code ), $coupon );
+	}
+
+
+
+
+	// Our hooked in function - $address_fields is passed via the filter!
+	function cbc_override_default_address_fields( $address_fields ) {
+		unset($address_fields['country']);
+		unset($address_fields['company']);
+		unset($address_fields['address_2']['placeholder']);
+
+		$address_fields['address_1']['placeholder'] = 'Your address';
+		$address_fields['state']['placeholder'] = 'County';
+		$address_fields['postcode']['placeholder'] = 'Postcode';
+	
+
+		foreach ($address_fields as $key => $value) {
+			$address_fields[$key]['class'] = array('form_element');
+			$address_fields[$key]['input_class'] = array('form_element_input');
+			$address_fields[$key]['label_class'] = array('form_element_label');
+		}
+
+	    return $address_fields;
+	}
+
+	function cbc_checkout_form_fields( $fields ){
+
+		//print_r($fields);
+
+		$fields['billing']['billing_email']['class'] = array('form_element');
+		$fields['billing']['billing_email']['input_class'] = array('form_element_input');
+		$fields['billing']['billing_email']['label_class'] = array('form_element_label');
+
+		$fields['billing']['billing_phone']['class'] = array('form_element');
+		$fields['billing']['billing_phone']['input_class'] = array('form_element_input');
+		$fields['billing']['billing_phone']['label_class'] = array('form_element_label');
+
+		//$fields['order']['order_comments']['label'] = 'Any thoughts?';
+		$fields['order']['order_comments']['label_class'] = array('h3');
+		$fields['order']['order_comments']['placeholder'] = 'Any thoughts?';
+
+		/*$fields['billing']['billing_postcode1'] = array(
+			'type' => 'select',
+	       'label'     => __('Postcode', 'woocommerce'),
+		   'placeholder'   => _x('Select..', 'placeholder', 'woocommerce'),
+		    'required'  => true,
+		    'class'     => array('form_element_select'),
+		    'clear'     => true,
+		    'options'	=> array(
+		    	'BS1' => 'BS1',
+  				'BS2' => 'BS2',
+  				'BS3' => 'BS3',
+  				'BS4' => 'BS4'
+		    )
+     	);*/
+
+     	$order = array(
+	        "billing_first_name", 
+	        "billing_last_name", 
+	        "billing_address_1", 
+	        "billing_address_2",
+	        "billing_city",
+	        "billing_postcode",
+	        "billing_email", 
+	        "billing_phone"
+	    );
+
+	    foreach($order as $field)
+	    {
+	        $ordered_fields[$field] = $fields["billing"][$field];
+	    }
+
+	    $fields["billing"] = $ordered_fields;
+
+		return $fields;
 	}
 
 
@@ -877,7 +954,6 @@ function cakeybakeyco_setup(){
 	}
 
 
-	// Function to override the default plus/minus quantity buttons on the variable single product page
 
 
 	/*
