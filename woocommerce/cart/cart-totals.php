@@ -33,7 +33,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 			<?php do_action( 'woocommerce_cart_totals_before_shipping' ); ?>
 
-			<?php wc_cart_totals_shipping_html(); ?>
+			<!--<?php wc_cart_totals_shipping_html(); ?>-->
 
 			<?php do_action( 'woocommerce_cart_totals_after_shipping' ); ?>
 
@@ -72,7 +72,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 		<?php do_action( 'woocommerce_cart_totals_before_order_total' ); ?>
 
 		<tr class="basket_totals_container">
-			<th class = "basket_totals_label"><?php _e( 'Grand Total', 'woocommerce' ); ?></th>
+			<th class = "basket_totals_label"><?php _e( 'Basket Total', 'woocommerce' ); ?></th>
 			<td class = "basket_totals_amount"><?php wc_cart_totals_order_total_html(); ?></td>
 		</tr>
 

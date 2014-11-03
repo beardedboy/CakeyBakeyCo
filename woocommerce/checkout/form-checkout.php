@@ -38,6 +38,7 @@ $get_checkout_url = apply_filters( 'woocommerce_get_checkout_url', WC()->cart->g
 			</div>
 
 			<div class="col-6-12">
+				<?php do_action('cbc_delivery_details'); ?>
 				<h3 id="order_review_heading" class = "h3"><?php _e( 'Your order summary', 'woocommerce' ); ?></h3>
 				<?php do_action( 'woocommerce_checkout_order_review' ); ?>
 			</div>

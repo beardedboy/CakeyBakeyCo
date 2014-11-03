@@ -105,7 +105,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 			<?php do_action( 'woocommerce_review_order_before_order_total' ); ?>
 
 			<tr class="order_totals">
-				<th class = "order_totals_label" colspan="2"><?php _e( 'Order Total', 'woocommerce' ); ?></th>
+				<th class = "order_totals_label" colspan="2"><?php _e( 'Grand Total', 'woocommerce' ); ?></th>
 				<td class = "order_totals_amount"><?php wc_cart_totals_order_total_html(); ?></td>
 			</tr>
 
