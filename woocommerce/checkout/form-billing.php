@@ -9,7 +9,7 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 ?>
-<div class="woocommerce-billing-fields">
+<div class="customer_details">
 	<?php if ( WC()->cart->ship_to_billing_address_only() && WC()->cart->needs_shipping() ) : ?>
 
 		<h3 class = "h3"><?php _e( 'Billing &amp; Shipping', 'woocommerce' ); ?></h3>

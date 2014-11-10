@@ -9,7 +9,7 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 ?>
-<div class="woocommerce-shipping-fields">
+<div class="customer_details customer_details-shipping">
 	<?php if ( WC()->cart->needs_shipping_address() === true ) : ?>
 
 		<?php
@@ -25,9 +25,9 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 			}
 		?>
 
-		<h3 id="ship-to-different-address">
-			<label for="ship-to-different-address-checkbox" class="checkbox"><?php _e( 'Ship to a different address?', 'woocommerce' ); ?></label>
-			<input id="ship-to-different-address-checkbox" class="input-checkbox" <?php checked( $ship_to_different_address, 1 ); ?> type="checkbox" name="ship_to_different_address" value="1" />
+		<h3 id="ship-to-different-address" class = "h4 shipping_different_address">
+			<label for="ship-to-different-address-checkbox" class="checkbox shipping_different_address_label"><?php _e( 'Ship to a different address?', 'woocommerce' ); ?></label>
+			<input id="ship-to-different-address-checkbox" class="input-checkbox shipping_different_address_checkbox" <?php checked( $ship_to_different_address, 1 ); ?> type="checkbox" name="ship_to_different_address" value="1" />
 		</h3>
 
 		<div class="shipping_address">
@@ -46,23 +46,24 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 	<?php endif; ?>
 
-	<?php do_action( 'woocommerce_before_order_notes', $checkout ); ?>
+</div>
 
-	<?php if ( apply_filters( 'woocommerce_enable_order_notes_field', get_option( 'woocommerce_enable_order_comments', 'yes' ) === 'yes' ) ) : ?>
+<?php do_action( 'woocommerce_before_order_notes', $checkout ); ?>
 
-		<?php if ( ! WC()->cart->needs_shipping() || WC()->cart->ship_to_billing_address_only() ) : ?>
+<?php if ( apply_filters( 'woocommerce_enable_order_notes_field', get_option( 'woocommerce_enable_order_comments', 'yes' ) === 'yes' ) ) : ?>
 
-			<h3><?php _e( 'Additional Information', 'woocommerce' ); ?></h3>
+	<?php if ( ! WC()->cart->needs_shipping() || WC()->cart->ship_to_billing_address_only() ) : ?>
 
-		<?php endif; ?>
-
-		<?php foreach ( $checkout->checkout_fields['order'] as $key => $field ) : ?>
-
-			<?php woocommerce_form_field( $key, $field, $checkout->get_value( $key ) ); ?>
-
-		<?php endforeach; ?>
+		<h3><?php _e( 'Additional Information', 'woocommerce' ); ?></h3>
 
 	<?php endif; ?>
 
-	<?php do_action( 'woocommerce_after_order_notes', $checkout ); ?>
-</div>
+	<?php foreach ( $checkout->checkout_fields['order'] as $key => $field ) : ?>
+
+		<?php woocommerce_form_field( $key, $field, $checkout->get_value( $key ) ); ?>
+
+	<?php endforeach; ?>
+
+<?php endif; ?>
+
+<?php do_action( 'woocommerce_after_order_notes', $checkout ); ?>

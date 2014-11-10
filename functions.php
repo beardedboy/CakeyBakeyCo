@@ -507,11 +507,12 @@ function cakeybakeyco_setup(){
 		unset($address_fields['country']);
 		unset($address_fields['company']);
 		unset($address_fields['address_2']['placeholder']);
+		//unset($address_fields['postcode']);
 
 		$address_fields['address_1']['placeholder'] = 'Your address';
 		$address_fields['state']['placeholder'] = 'County';
 		$address_fields['postcode']['placeholder'] = 'Postcode';
-	
+
 
 		foreach ($address_fields as $key => $value) {
 			$address_fields[$key]['class'] = array('form_element');
@@ -522,9 +523,9 @@ function cakeybakeyco_setup(){
 	    return $address_fields;
 	}
 
-	function cbc_checkout_form_fields( $fields ){
 
-		//print_r($fields);
+
+	function cbc_checkout_form_fields( $fields ){
 
 		$fields['billing']['billing_email']['class'] = array('form_element');
 		$fields['billing']['billing_email']['input_class'] = array('form_element_input');
@@ -536,24 +537,10 @@ function cakeybakeyco_setup(){
 
 		//$fields['order']['order_comments']['label'] = 'Any thoughts?';
 		$fields['order']['order_comments']['label_class'] = array('h3');
+		$fields['order']['order_comments']['input_class'] = array('order_notes_input');
 		$fields['order']['order_comments']['placeholder'] = 'Any thoughts?';
 
-		/*$fields['billing']['billing_postcode1'] = array(
-			'type' => 'select',
-	       'label'     => __('Postcode', 'woocommerce'),
-		   'placeholder'   => _x('Select..', 'placeholder', 'woocommerce'),
-		    'required'  => true,
-		    'class'     => array('form_element_select'),
-		    'clear'     => true,
-		    'options'	=> array(
-		    	'BS1' => 'BS1',
-  				'BS2' => 'BS2',
-  				'BS3' => 'BS3',
-  				'BS4' => 'BS4'
-		    )
-     	);*/
-
-     	$order = array(
+     	$billing_order = array(
 	        "billing_first_name", 
 	        "billing_last_name", 
 	        "billing_address_1", 
@@ -564,15 +551,44 @@ function cakeybakeyco_setup(){
 	        "billing_phone"
 	    );
 
-	    foreach($order as $field)
+	    $shipping_order = array(
+	        "shipping_first_name", 
+	        "shipping_last_name", 
+	        "shipping_address_1", 
+	        "shipping_address_2",
+	        "shipping_city",
+	        "shipping_postcode"
+	    );
+
+	    foreach($billing_order as $field)
 	    {
-	        $ordered_fields[$field] = $fields["billing"][$field];
+	        $ordered_billing_fields[$field] = $fields["billing"][$field];
 	    }
 
-	    $fields["billing"] = $ordered_fields;
+	    $fields["billing"] = $ordered_billing_fields;
+
+	    foreach($shipping_order as $field)
+	    {
+	        $ordered_shipping_fields[$field] = $fields["shipping"][$field];
+	    }
+
+	    $fields["shipping"] = $ordered_shipping_fields;
 
 		return $fields;
 	}
+
+	/**
+	* Update the order meta with field value
+	* 
+	*add_action( 'woocommerce_checkout_update_order_meta', 'some_custom_checkout_field_update_order_meta' );
+	* 
+	*function some_custom_checkout_field_update_order_meta( $order_id ) {
+	*    if ( ! empty( $_POST['billing_first_postcode'] ) && ! empty( $_POST['billing_second_postcode'] ) ) {
+	*        update_post_meta( $order_id, 'Postcode part 1', sanitize_text_field( $_POST['billing_first_postcode'] ) );
+	*        update_post_meta( $order_id, 'Postcode part 2', sanitize_text_field( $_POST['billing_second_postcode'] ) );
+	*    }
+	*}
+	*/
 
 
 	/**
