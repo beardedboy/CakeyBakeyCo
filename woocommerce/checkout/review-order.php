@@ -10,7 +10,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 ?>
 
-<?php if ( ! $is_ajax ) : ?><div id="order_review"><?php endif; ?>
+<?php if ( ! $is_ajax ) : ?><div id="order_review" class = "checkout_summary_item_content"><?php endif; ?>
 
 	<table class="order_review">
 		<thead>

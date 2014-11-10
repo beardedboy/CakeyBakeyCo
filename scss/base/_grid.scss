@@ -30,32 +30,12 @@
 	padding: 0;
 }
 
-.main_content, .main_content-basket{
+.main_content, .main_content-med{
 	background-color: white;
 	width: 100%;
-	padding: 2.828em 4%;
+	padding: 4em 4%;
 	margin: 0 auto;
 	min-height: 100%;
-}
-
-.main_content{
-	@include min-screen(47.5em){
-		padding-left: 0;
-		padding-right: 0;
-		max-width: $sm-content-width;
-	}
-}
-
-.main_content-large{
-	@include min-screen(27.75em){
-		padding-left: 0;
-		padding-right: 0;
-	}
-}
-
-.main_content-basket{
-	@include min-screen(47.5em){
-	}
 }
 
 [class*='col-']{
@@ -74,10 +54,15 @@
 
 @include min-screen($extsm-bp){}// end extra small media query
 
-@include min-screen($sm-bp){
+@include min-screen($sm-bp){}// end small media query
 
 
-}// end small media query
+@include min-screen(27.75em){
+	.main_content-large{
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
 
 @include min-screen(47.5em){
 	
@@ -92,15 +77,23 @@
 	  		width: ($val * $i) + ($col-margin * ($i - 1)); 
 	  	}
 	}
+
+	.main_content{
+		padding-left: 0;
+		padding-right: 0;
+		max-width: $sm-content-width;
+	}
 	
 	.main_content-large{
-		max-width: $md-content-width;
+		max-width: $lrg-content-width;
 	}
 
 }// end medium media query
 
 @include min-screen(57.5em){
-	.main_content-basket{
+	.main_content-med{
+		padding-left: 0;
+		padding-right: 0;
 		max-width: $md-content-width;
 	}
 }

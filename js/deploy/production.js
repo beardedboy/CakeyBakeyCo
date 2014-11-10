@@ -339,6 +339,8 @@ var Touch = (function(){
 
 })();
 
+$('.checkout_input_item_content').addClass('hidden');
+
 var Navigation = ( function($) {
 
   var settings = {

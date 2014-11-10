@@ -9,16 +9,18 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 ?>
-<div class="customer_details">
+<div class="checkout_input_item">
 	<?php if ( WC()->cart->ship_to_billing_address_only() && WC()->cart->needs_shipping() ) : ?>
 
 		<h3 class = "h3"><?php _e( 'Billing &amp; Shipping', 'woocommerce' ); ?></h3>
 
 	<?php else : ?>
 
-		<h3 class = "h3"><?php _e( 'Your Details', 'woocommerce' ); ?></h3>
+		<h3 class = "h3 checkout_input_item_header"><?php _e( 'Billing Address', 'woocommerce' ); ?></h3>
 
 	<?php endif; ?>
+
+	<div class = "checkout_input_item_content">
 
 	<?php do_action( 'woocommerce_before_checkout_billing_form', $checkout ); ?>
 	
@@ -63,4 +65,5 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 		<?php do_action( 'woocommerce_after_checkout_registration_form', $checkout ); ?>
 
 	<?php endif; ?>
+	</div>
 </div>

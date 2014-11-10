@@ -9,7 +9,7 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 ?>
-<div class="customer_details customer_details-shipping">
+<div class="checkout_input_item">
 	<?php if ( WC()->cart->needs_shipping_address() === true ) : ?>
 
 		<?php
@@ -25,12 +25,12 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 			}
 		?>
 
-		<h3 id="ship-to-different-address" class = "h4 shipping_different_address">
-			<label for="ship-to-different-address-checkbox" class="checkbox shipping_different_address_label"><?php _e( 'Ship to a different address?', 'woocommerce' ); ?></label>
-			<input id="ship-to-different-address-checkbox" class="input-checkbox shipping_different_address_checkbox" <?php checked( $ship_to_different_address, 1 ); ?> type="checkbox" name="ship_to_different_address" value="1" />
+	
+		<h3 id="ship-to-different-address" class = "h3 checkout_input_item_header">
+			Delivery Address
 		</h3>
 
-		<div class="shipping_address">
+		<div class="checkout_input_item_content shipping_address">
 
 			<?php do_action( 'woocommerce_before_checkout_shipping_form', $checkout ); ?>
 
@@ -47,6 +47,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 	<?php endif; ?>
 
 </div>
+
+<div class="checkout_input_item">
 
 <?php do_action( 'woocommerce_before_order_notes', $checkout ); ?>
 
@@ -67,3 +69,5 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 <?php endif; ?>
 
 <?php do_action( 'woocommerce_after_order_notes', $checkout ); ?>
+
+</div> 

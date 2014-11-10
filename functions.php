@@ -442,8 +442,11 @@ function cakeybakeyco_setup(){
 
 	//add_filter('woocommerce_short_description', 'cbc_filter_short_description', 10);
 
+    //CHECKOUT PAGE ACTIONS / FILTERS
+
     add_filter( 'woocommerce_default_address_fields' , 'cbc_override_default_address_fields' );
     add_filter('woocommerce_checkout_fields', 'cbc_checkout_form_fields');
+    add_action('cbc_add_order_notes','cbc_add_order_notes_to_checkout');
 
     add_action('cbc_header', 'mobileBasket');
 
@@ -536,8 +539,8 @@ function cakeybakeyco_setup(){
 		$fields['billing']['billing_phone']['label_class'] = array('form_element_label');
 
 		//$fields['order']['order_comments']['label'] = 'Any thoughts?';
-		$fields['order']['order_comments']['label_class'] = array('h3');
-		$fields['order']['order_comments']['input_class'] = array('order_notes_input');
+		$fields['order']['order_comments']['label_class'] = array('h3 checkout_input_item_header');
+		$fields['order']['order_comments']['input_class'] = array('checkout_input_item_content order_notes_input');
 		$fields['order']['order_comments']['placeholder'] = 'Any thoughts?';
 
      	$billing_order = array(
@@ -575,6 +578,10 @@ function cakeybakeyco_setup(){
 	    $fields["shipping"] = $ordered_shipping_fields;
 
 		return $fields;
+	}
+
+	function cbc_add_order_notes_to_checkout(){
+		wc_get_template( 'checkout/form-ordernotes.php' );
 	}
 
 	/**
@@ -988,8 +995,11 @@ function cakeybakeyco_setup(){
 		WOOCOMMERCE SETUP FUNCTIONS
 	*/
 	function cbc_wrapper_start() {
-		if(is_shop() || is_product_tag() || is_product() ){
+		if(is_shop() || is_product_tag() ){
 			echo '<section class="main_content main_content-large">';
+		}
+		elseif( is_product() ){
+			echo '<section class="main_content main_content-med">';
 		}
 		else{
 			echo '<section class="main_content">';

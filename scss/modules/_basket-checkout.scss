@@ -491,7 +491,7 @@
         font-size: 1.3em;
         right: -1px;
         top: 100%;
-        width: 17em;
+        width: 19em;
         background-color: $pink;
         //z-index: -99999;
         border-top-left-radius: 0.2777777777777778em;
@@ -660,6 +660,45 @@
     Checkout: Styling for the checkout page
 
    ***********************************************************************************/ 
+
+    .checkout{}
+
+    .checkout_summary{
+        margin-left: 0;
+        width: 41.3333%;
+    }
+
+    .checkout_input{
+        border-right: 1px solid $black;
+        width: 58.6667%;
+    }
+
+    .checkout_summary_item{
+        border-bottom: 1px solid $black;
+        margin-bottom: 2em;
+        padding-bottom: 2em;
+    }
+
+    .checkout_input_item{
+        border-bottom: 1px solid $black;
+        padding: 2em 0;
+    }
+
+    .checkout_input_item_header, .checkout_summary_item_header{
+        text-align: left;
+    }
+
+     .checkout_input_item_header{
+        margin-bottom: 0;
+     }
+
+    .checkout_input_item_content{
+        padding: 0 6% 2em 0;
+    }
+
+    .checkout_summary_item_header, .checkout_summary_item_content{
+        padding-left: 3em;
+    }
 
 
    .order_review{
