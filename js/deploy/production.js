@@ -232,6 +232,12 @@ var Carousel = (function ($) {
 //if (window.matchMedia( "(min-width: 47.5em)" ).matches){
 	Carousel.init();
 //}
+var Checkout = (function($) {
+
+
+})(jQuery);
+
+//Checkout.init();
 var global = (function(){
     Modernizr.addTest('data', function () {
       var elem = document.createElement('div');
@@ -338,8 +344,6 @@ var Touch = (function(){
   }
 
 })();
-
-$('.checkout_input_item_content').addClass('hidden');
 
 var Navigation = ( function($) {
 
@@ -578,7 +582,7 @@ var Products = (function($) {
       publicSettings = {}
 
   //****** PUBLIC METHODS *********************************************** //
-  
+
   publicSettings.init = function(){
 
     for(var i = 0; i < settings.dropdowns.length; i++){
@@ -587,7 +591,7 @@ var Products = (function($) {
 
     $('.attachment-shop_thumbnail').on('click', function(){
         var photo_fullsize =  $(this).attr('src').replace('-90x90','');
-        jQuery('.woocommerce-main-image').attr('src', photo_fullsize);
+        $('.woocommerce-main-image').attr('src', photo_fullsize);
         return false;
     });
 

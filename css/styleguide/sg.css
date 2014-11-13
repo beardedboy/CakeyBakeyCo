@@ -926,7 +926,8 @@ textarea {
 }
 
 [class^="icon-"]:after,
-[class*=" icon-"]:after {
+[class*=" icon-"]:after,
+.woocommerce-validated:after {
   font-family: "cakeybakeyco" !important;
   font-style: normal !important;
   font-weight: normal !important;
@@ -1469,20 +1470,22 @@ textarea {
 
 .form_element {
   display: block;
+  position: relative;
 }
 
 .form_element_label {
-  display: inline;
+  display: block;
   vertical-align: middle;
-  text-align: left;
   margin: 0;
   font-size: 1em;
+  padding-bottom: 0.5em;
 }
 
 .form_element_input {
-  display: inline;
+  display: block;
+  width: 100%;
   border: 1px solid black;
-  padding: 0.5714285714285714em 2em 0.5714285714285714em 0.5714285714285714em;
+  padding: 0.707em;
   border-radius: 0;
   vertical-align: middle;
 }
@@ -1495,9 +1498,32 @@ textarea {
   padding: 0.5714285714285714em 2em 0.5714285714285714em 0.5714285714285714em;
 }
 
+.form_element_label-inline {
+  display: inline-block;
+  width: 30%;
+  vertical-align: middle;
+  margin: 0;
+  font-size: .9em;
+  text-align: right;
+  padding-right: 1em;
+}
+
 .form_element_input-inline {
   display: inline-block;
-  width: auto;
+  width: 70%;
+  border: 1px solid black;
+  padding: 0.707em;
+  border-radius: 0;
+  vertical-align: middle;
+}
+.form_element_input-inline:focus {
+  border: 1px solid #3498db;
+  outline: 5px solid rgba(52, 152, 219, 0.5);
+}
+
+.nolabel {
+  width: 70%;
+  margin-left: 30%;
 }
 
 .form_group {
@@ -1519,6 +1545,44 @@ textarea {
 .form_input_group {
   position: relative;
   margin: 0;
+}
+
+.input_success:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: black;
+  background-color: black;
+  content: "Y";
+}
+
+.woocommerce-invalid:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  color: white;
+  text-align: center;
+  line-height: 43px;
+  background-color: #e74c3c;
+  content: "Y";
+}
+
+.woocommerce-validated:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  color: #2ecc71;
+  text-align: center;
+  line-height: 41px;
+  font-size: 1.414em;
+  content: "o";
+}
+
+.required {
+  border: none !important;
+  color: #e74c3c;
 }
 
 /*---------------- FORM ELEMENTS ---------------------- */

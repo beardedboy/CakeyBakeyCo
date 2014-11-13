@@ -6,7 +6,7 @@ var Products = (function($) {
       publicSettings = {}
 
   //****** PUBLIC METHODS *********************************************** //
-  
+
   publicSettings.init = function(){
 
     for(var i = 0; i < settings.dropdowns.length; i++){
@@ -15,7 +15,7 @@ var Products = (function($) {
 
     $('.attachment-shop_thumbnail').on('click', function(){
         var photo_fullsize =  $(this).attr('src').replace('-90x90','');
-        jQuery('.woocommerce-main-image').attr('src', photo_fullsize);
+        $('.woocommerce-main-image').attr('src', photo_fullsize);
         return false;
     });
 

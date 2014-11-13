@@ -38,7 +38,8 @@
 }
 
 [class^="icon-"]:after,
-[class*=" icon-"]:after {
+[class*=" icon-"]:after,
+.woocommerce-validated:after {
   font-family: "cakeybakeyco" !important;
   font-style: normal !important;
   font-weight: normal !important;

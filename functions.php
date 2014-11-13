@@ -38,17 +38,14 @@ function cbc_CartContent() {
 			$quantity = $cart_item['quantity'];
 			$_desc = '';
 
-			$blah = $_product->variation_data;
 			$_type = $_product->product_type;
-			$_variation = woocommerce_get_formatted_variation( $blah, true);
 
 			if($_type == 'simple'){
 				$_desc = $cart_item['data']->post->post_excerpt;
 			}
 			elseif($_type == "variation"){
-				$_desc = $_variation;
+				$_desc = WC()->cart->get_item_data( $cart_item );
 			}
-
 
 	  		$output .= '<li class = "mini_basket_list_item">';
 			$output .= '<div class = "mini_basket_list_item_thumb">'.$thumbnail.'</div>';
@@ -373,16 +370,18 @@ function cakeybakeyco_setup(){
 	remove_action('wp_head', 'rsd_link');
 	remove_action('wp_head', 'wp_generator');
 	remove_action('wp_head', 'index_rel_link');
+
+	//ADDS SOCIAL MEDIA META TAGS TO HEAD
 	add_action('wp_head', 'cbc_add_social_head_meta_tags', 10);
 
 	// REGISTER THEME NAVIGATIONS
 	add_action( 'init', 'register_main_nav' );
 
 	add_action( 'wp_enqueue_scripts', 'cbc_load_js' );	
-	add_action( 'wp_enqueue_scripts', 'child_manage_woocommerce_styles', 99 );
+	add_action( 'wp_enqueue_scripts', 'cbc_manage_woocommerce_styles', 99 );
 	
 	//ADDS CUSTOM FONTS
-	add_action('wp_print_styles', 'load_fonts');
+	add_action('wp_print_styles', 'cbc_load_fonts');
 
 	//ADDS WOOCOMMERCE SUPPORT
 	add_action( 'after_setup_theme', 'woocommerce_support' );
@@ -411,7 +410,7 @@ function cakeybakeyco_setup(){
 
 	remove_action('woocommerce_before_single_product_summary','woocommerce_show_product_sale_flash', 10);
 
-	//Moves the notices with the main section of the page
+	//Moves the notices within the main section of the page
 	remove_action('woocommerce_before_single_product', 'wc_print_notices', 10);
 	add_action ('woocommerce_before_single_product_summary', 'wc_print_notices', 10);
 
@@ -446,7 +445,7 @@ function cakeybakeyco_setup(){
 
     add_filter( 'woocommerce_default_address_fields' , 'cbc_override_default_address_fields' );
     add_filter('woocommerce_checkout_fields', 'cbc_checkout_form_fields');
-    add_action('cbc_add_order_notes','cbc_add_order_notes_to_checkout');
+    //add_action('cbc_add_order_notes','cbc_add_order_notes_to_checkout');
 
     add_action('cbc_header', 'mobileBasket');
 
@@ -519,9 +518,11 @@ function cakeybakeyco_setup(){
 
 		foreach ($address_fields as $key => $value) {
 			$address_fields[$key]['class'] = array('form_element');
-			$address_fields[$key]['input_class'] = array('form_element_input');
-			$address_fields[$key]['label_class'] = array('form_element_label');
+			$address_fields[$key]['input_class'] = array('form_element_input-inline');
+			$address_fields[$key]['label_class'] = array('form_element_label-inline');
 		}
+
+		$address_fields['address_2']['input_class'] = array('form_element_input-inline nolabel icon-success');
 
 	    return $address_fields;
 	}
@@ -531,12 +532,12 @@ function cakeybakeyco_setup(){
 	function cbc_checkout_form_fields( $fields ){
 
 		$fields['billing']['billing_email']['class'] = array('form_element');
-		$fields['billing']['billing_email']['input_class'] = array('form_element_input');
-		$fields['billing']['billing_email']['label_class'] = array('form_element_label');
+		$fields['billing']['billing_email']['input_class'] = array('form_element_input-inline');
+		$fields['billing']['billing_email']['label_class'] = array('form_element_label-inline');
 
 		$fields['billing']['billing_phone']['class'] = array('form_element');
-		$fields['billing']['billing_phone']['input_class'] = array('form_element_input');
-		$fields['billing']['billing_phone']['label_class'] = array('form_element_label');
+		$fields['billing']['billing_phone']['input_class'] = array('form_element_input-inline');
+		$fields['billing']['billing_phone']['label_class'] = array('form_element_label-inline');
 
 		//$fields['order']['order_comments']['label'] = 'Any thoughts?';
 		$fields['order']['order_comments']['label_class'] = array('h3 checkout_input_item_header');
@@ -580,9 +581,9 @@ function cakeybakeyco_setup(){
 		return $fields;
 	}
 
-	function cbc_add_order_notes_to_checkout(){
-		wc_get_template( 'checkout/form-ordernotes.php' );
-	}
+	//function cbc_add_order_notes_to_checkout(){
+	//	wc_get_template( 'checkout/form-ordernotes.php' );
+	//}
 
 	/**
 	* Update the order meta with field value
@@ -765,13 +766,22 @@ function cakeybakeyco_setup(){
 		echo cbc_product_loop_thumbnail();
 	}
 
-	//Function that replaces the default thumbnail image generation in the Woocommerce product page loop with one that gives the
-	//images 100% responsive width.
-	function cbc_product_loop_thumbnail( $size = 'shop_catalog', $placeholder_width = 1, $placeholder_height = 0  ) {
+	//Function that replaces the default thumbnail image generation in the Woocommerce product page loop with one that uses
+	//the new Picture element, loading 90x90px as base image and then switching to a 300px as the viewport gets larger.
+	function cbc_product_loop_thumbnail( $size = array('shop_catalog', 'shop_thumbnail'), $placeholder_width = 1, $placeholder_height = 0  ) {
 		global $post;
 		if ( has_post_thumbnail() ){
-			$blah = wp_get_attachment_image_src( get_post_thumbnail_id() ,$size );
-     		return '<img width="100%" class = "product_list_item_img" src="' . $blah[0] . '">';
+
+			$img_large = wp_get_attachment_image_src( get_post_thumbnail_id() ,$size[0] );
+			$img_small = wp_get_attachment_image_src( get_post_thumbnail_id() ,$size[1] );
+
+			$image = "<picture>";
+			$image .= "<source media='(min-width: 27.7777778em)' srcset='".$img_large[0]."  ".$img_large[1]."w'/>";
+			$image .= "<source srcset='".$img_small[0]." ".$img_small[1]."w' />";
+			$image .= "<img class = 'product_list_item_img' sizes='100%' src='".$img_large[0]."'  alt='Look at my image!'/>";
+			$image .= "</picture>";
+
+			return $image;
 		}
 	}
 
@@ -803,6 +813,7 @@ function cakeybakeyco_setup(){
 
 	function cbc_remove_width_attribute( $html ) {
 	   $html = preg_replace( '/(width|height)="\d*"\s/', "", $html );
+	//$html = '<p>Image Here</p>';
 	   return $html;
 	}
 
@@ -845,7 +856,7 @@ function cakeybakeyco_setup(){
 	}
 
 	//Function to load custom font into themeƒ
-	function load_fonts() {
+	function cbc_load_fonts() {
             wp_register_style('googleFonts', 'http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,800,700');
             wp_enqueue_style( 'googleFonts');
         }
@@ -971,19 +982,19 @@ function cakeybakeyco_setup(){
 	}
 
  
-	function child_manage_woocommerce_styles() {
+	function cbc_manage_woocommerce_styles() {
 	    //first check that woo exists to prevent fatal errors
 	    if ( function_exists( 'is_woocommerce' ) ) {
 	        //dequeue scripts and styles
+	        wp_dequeue_style( 'woocommerce-layout' );
+			wp_dequeue_style( 'woocommerce-smallscreen' );
+			wp_dequeue_style( 'woocommerce-general' );
+			wp_dequeue_script( 'jquery-blockui' );
+			wp_dequeue_script( 'jquery-placeholder' );
 	        if ( ! is_woocommerce() && ! is_cart() && ! is_checkout() ) {
-	        	wp_dequeue_style( 'woocommerce-layout' );
-				wp_dequeue_style( 'woocommerce-smallscreen' );
-				wp_dequeue_style( 'woocommerce-general' );
 				wp_dequeue_script( 'wc-add-to-cart' );
 				wp_dequeue_script( 'wc-cart-fragments' );
 				wp_dequeue_script( 'woocommerce' );
-				wp_dequeue_script( 'jquery-blockui' );
-				wp_dequeue_script( 'jquery-placeholder' );
 	        }
 	    }	 
 	}
