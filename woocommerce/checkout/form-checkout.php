@@ -33,15 +33,11 @@ $get_checkout_url = apply_filters( 'woocommerce_get_checkout_url', WC()->cart->g
 			<div class="col-7-12 checkout_input">
 				<?php do_action( 'woocommerce_checkout_billing' ); ?>
 				<?php do_action( 'woocommerce_checkout_shipping' ); ?>
-				<?php do_action('cbc_delivery_details'); ?>
-				<div class = "checkout_input_item">
-					<h4 id="order_review_heading" class = "h4 checkout_input_item_header"><?php _e( 'Your order summary', 'woocommerce' ); ?></h3>
-					<?php do_action( 'woocommerce_checkout_order_review' ); ?>
-				</div>
+				<?php do_action('cbc_pay'); ?>
 			</div>
 
 			<div class="col-5-12 checkout_summary">
-				<h3 class = "h3 checkout_summary_item_header">Your Order Progress</h3>
+				<h3 class = "h3 checkout_summary_header">Your Order Progress</h3>
 				<div class = "checkout_summary_item">
 					<h4 class = "h4 checkout_summary_item_header">Billing Address</h3>
 					<div class = "checkout_summary_item_content">
@@ -57,7 +53,7 @@ $get_checkout_url = apply_filters( 'woocommerce_get_checkout_url', WC()->cart->g
 				<div class = "checkout_summary_item">
 					<h4 class = "h4 checkout_summary_item_header">Delivery Address</h3>
 					<div class = "checkout_summary_item_content">
-												<address>
+						<address>
 						Mark Rudman<br>
 						First Floor Flat<br>
 						1 Ralph Road<br>
@@ -69,6 +65,14 @@ $get_checkout_url = apply_filters( 'woocommerce_get_checkout_url', WC()->cart->g
 				<div class = "checkout_summary_item">
 					<h4 class = "h4 checkout_summary_item_header">Order Notes</h3>
 					<div class = "checkout_summary_item_content">Pending</div>
+				</div>
+				<div class = "checkout_summary_item">
+					<h4 class = "h4 checkout_summary_item_header">Delivery Details</h3>
+					<div class = "checkout_summary_item_content">Pending</div>
+				</div>
+				<div class = "checkout_summary_item">
+					<h4 id="order_review_heading" class = "h4 checkout_summary_item_header"><?php _e( 'Your order summary', 'woocommerce' ); ?></h3>
+					<?php do_action( 'woocommerce_checkout_order_review' ); ?>
 				</div>
 			</div>
 

@@ -679,12 +679,12 @@
         padding-bottom: 2em;
     }
 
-    .checkout_input_item{
+    .checkout_input_item, .checkout_summary_header{
         border-bottom: 1px solid $black;
         padding: 2em 0;
     }
 
-    .checkout_input_item_header, .checkout_summary_item_header{
+    .checkout_input_item_header, .checkout_summary_item_header, .checkout_summary_header{
         text-align: left;
     }
 
@@ -693,11 +693,27 @@
      }
 
     .checkout_input_item_content{
-        padding: 0 6% 2em 0;
+        padding: 0 6% 0 0;
     }
 
-    .checkout_summary_item_header, .checkout_summary_item_content{
+    .checkout_summary_item_header{
         padding-left: 3em;
+    }
+
+    .checkout_summary_header, .checkout_summary_item_content{
+        padding-left: 2.625em;
+    }
+    
+    //Woocommerce generated wrapper for order notes
+    .notes{
+    }
+
+    .order_notes_input{
+        display: block;
+        width: 100%;
+        border: 1px solid black;
+        min-height: 6.25em;
+        padding: .5em;
     }
 
 
@@ -755,6 +771,5 @@
     .order_review_item-total, .order_totals_amount{
         text-align: right;
     }
-
 
 

@@ -446,8 +446,15 @@ function cakeybakeyco_setup(){
     add_filter( 'woocommerce_default_address_fields' , 'cbc_override_default_address_fields' );
     add_filter('woocommerce_checkout_fields', 'cbc_checkout_form_fields');
     //add_action('cbc_add_order_notes','cbc_add_order_notes_to_checkout');
+    add_action('cbc_pay','cbc_make_payment');
 
     add_action('cbc_header', 'mobileBasket');
+
+    add_action('woocommerce_after_order_notes', 'cbc_victory');
+
+    function cbc_victory(){
+    	echo "<div class = 'btn_flat btn-sm'>Next</div>";
+    }
 
     function cbc_basket(){
     	do_action('cbc_header');
@@ -539,9 +546,9 @@ function cakeybakeyco_setup(){
 		$fields['billing']['billing_phone']['input_class'] = array('form_element_input-inline');
 		$fields['billing']['billing_phone']['label_class'] = array('form_element_label-inline');
 
-		//$fields['order']['order_comments']['label'] = 'Any thoughts?';
-		$fields['order']['order_comments']['label_class'] = array('h3 checkout_input_item_header');
-		$fields['order']['order_comments']['input_class'] = array('checkout_input_item_content order_notes_input');
+		unset($fields['order']['order_comments']['label']);
+		//$fields['order']['order_comments']['label_class'] = array('h3 checkout_input_item_header');
+		$fields['order']['order_comments']['input_class'] = array('order_notes_input');
 		$fields['order']['order_comments']['placeholder'] = 'Any thoughts?';
 
      	$billing_order = array(
@@ -584,6 +591,11 @@ function cakeybakeyco_setup(){
 	//function cbc_add_order_notes_to_checkout(){
 	//	wc_get_template( 'checkout/form-ordernotes.php' );
 	//}
+
+	//Function to add the Pay section to the cheeckout page.
+	function cbc_make_payment(){
+		wc_get_template( 'checkout/form-pay-section.php' );
+	}
 
 	/**
 	* Update the order meta with field value
