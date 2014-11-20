@@ -1165,9 +1165,14 @@ textarea {
   font-size: 1em;
 }
 
-.form_element {
+.form_element, .form_element-last {
   display: block;
   position: relative;
+  margin: 0 0 1em 0;
+}
+
+.form_element-last {
+  margin-bottom: 2.121em;
 }
 
 .form_element_label {
@@ -1224,14 +1229,11 @@ textarea {
 }
 
 .form_group {
-  padding: 0.5714285714285714em 0;
+  padding: 0 0 0.5714285714285714em 0;
 }
 
 .form_group-radio {
   padding-top: 0;
-}
-.form_group-radio:first-child {
-  padding-top: 0.5714285714285714em;
 }
 
 .form_group-container {
@@ -1286,6 +1288,7 @@ textarea {
 .form_input-radio {
   width: auto;
   border: none;
+  margin-right: .9em;
 }
 .form_input-radio:focus {
   border: none;
@@ -3210,6 +3213,14 @@ img {
     box-shadow: 0px 3px 3px rgba(51, 51, 51, 0.2);
     border-top: none;
   }
+}
+@media only screen and (min-width: 57.5em) and (-webkit-min-device-pixel-ratio: 2), only screen and (min-width: 57.5em) and (min--moz-device-pixel-ratio: 2), only screen and (min-width: 57.5em) and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-width: 57.5em) and (min-device-pixel-ratio: 2), only screen and (min-width: 57.5em) and (min-resolution: 192dpi), only screen and (min-width: 57.5em) and (min-resolution: 2dppx) {
+  .mini_basket {
+    top: 100%;
+  }
+}
+
+@media only screen and (min-width: 57.5em) {
   .mini_basket_link {
     position: relative;
     font-size: 1em;
@@ -3352,24 +3363,18 @@ img {
     border-top: 1px solid #e2758d;
   }
 }
-@media only screen and (min-width: 57.5em) and (-webkit-min-device-pixel-ratio: 2), only screen and (min-width: 57.5em) and (min--moz-device-pixel-ratio: 2), only screen and (min-width: 57.5em) and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-width: 57.5em) and (min-device-pixel-ratio: 2), only screen and (min-width: 57.5em) and (min-resolution: 192dpi), only screen and (min-width: 57.5em) and (min-resolution: 2dppx) {
-  .mini_basket {
-    top: 100%;
-  }
-}
-
    /***********************************************************************************
 
     Checkout: Styling for the checkout page
 
    ***********************************************************************************/
 .checkout_summary {
+  border-left: 1px solid black;
   margin-left: 0;
   width: 41.3333%;
 }
 
 .checkout_input {
-  border-right: 1px solid black;
   width: 58.6667%;
 }
 
@@ -3384,24 +3389,38 @@ img {
   padding: 2em 0;
 }
 
-.checkout_input_item_header, .checkout_summary_item_header, .checkout_summary_header {
+.checkout_input_item_header, .checkout_input_item_subheader, .checkout_summary_item_header, .checkout_summary_header {
   text-align: left;
 }
 
 .checkout_input_item_header {
-  margin-bottom: 0;
+  margin: 0;
+}
+
+.checkout_input_item_subheader {
+  margin: 0 0 1.414em 0;
 }
 
 .checkout_input_item_content {
-  padding: 0 6% 0 0;
+  padding: 1.414em 6% 0 0;
 }
 
 .checkout_summary_item_header {
-  padding-left: 3em;
+  padding-left: 7%;
 }
 
 .checkout_summary_header, .checkout_summary_item_content {
-  padding-left: 2.625em;
+  padding-left: 7%;
+}
+
+.checkout_input-deliverychoice {
+  padding-top: 2.121em;
+  border-top: 1px dashed black;
+}
+
+.notes {
+  margin: 0;
+  padding: 0 0 1.414em 0;
 }
 
 .order_notes_input {
@@ -3767,8 +3786,7 @@ img {
 
   @page {
     margin: 0.5cm;
-}
-
+  }
   p,
   h2,
   h3 {

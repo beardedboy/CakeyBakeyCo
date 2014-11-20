@@ -1,13 +1,12 @@
 var Checkout = (function($) {
-  
-  function publicInit(){
-  	//$('.checkout_input_item_content:gt(0)').addClass('hidden');
-  }
 
+    function publicInit(){
+        $('.checkout_input_item_content:gt(0)').addClass('hidden');
+    }
 
-  return {
-    init: publicInit
-  };
+    return {
+        init: publicInit
+    };
 
 })(jQuery);
 

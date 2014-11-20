@@ -21,6 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 	<?php endif; ?>
 
 	<div class = "checkout_input_item_content">
+		<div class = "checkout_input-address">
 
 	<?php do_action( 'woocommerce_before_checkout_billing_form', $checkout ); ?>
 	
@@ -65,22 +66,22 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 		<?php do_action( 'woocommerce_after_checkout_registration_form', $checkout ); ?>
 
 	<?php endif; ?>
-	
-	<h4 class = "h4 checkout_input_item_header">Where would you like your order delivered?</h4>
-
-	<div class = "form_group">
-	
-		<div class = "form_group form_group-radio">
-			<input type = "radio" class = "form_input form_input-radio" name = "delivery" id = "cbc_billing_address" value = "billing">
-			<label for "cbc_billing_address" class="form_label form_label-radio">Same as billing address</label>
-		</div>
-		<div class = "form_group form_group-radio">
-			<input type = "radio" class = "form_input form_input-radio" name = "delivery" id = "cbc_shipping_address" value = "shipping">
-			<label for "cbc_shipping_address" class="form_label form_label-radio">Enter a shipping address</label>
-		</div>
 	</div>
+	
+	<div class = "checkout_input-deliverychoice">
+		<h4 class = "h4 checkout_input_item_subheader">Where would you like your order delivered?</h4>
+		
+		<div class = "form_group">
+			<div class = "form_group form_group-radio">
+				<label class="form_label form_label-radio"><input type = "radio" class = "form_input form_input-radio" name = "delivery" id = "cbc_billing_address" value = "billing">Same as billing address</label>
+			</div>
+			<div class = "form_group form_group-radio">
+				<label class="form_label form_label-radio"><input type = "radio" class = "form_input form_input-radio" name = "delivery" id = "cbc_shipping_address" value = "shipping">Enter a shipping address</label>
+			</div>
+		</div>
 
-	<div class = "btn_flat btn-sm">continue</div>
+		<div class = "btn_flat btn-sm">Next</div>
+	</div>
 	
 	</div>
 

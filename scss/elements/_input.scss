@@ -7,10 +7,14 @@
 	@extend %clearfix;
 }
 
-.form_element{
-
+.form_element, .form_element-last{
 	display: block;
 	position: relative;
+	margin: 0 0 1em 0;
+}
+
+.form_element-last{
+	margin-bottom: 2.121em;
 }
 
 .form_element_label{
@@ -68,14 +72,11 @@
 
 .form_group{
 	@extend %clearfix;
-	padding: 0.5714285714285714em 0;
+	padding: 0 0 0.5714285714285714em 0;
 }
 
 .form_group-radio{
 	padding-top: 0; 
-	&:first-child{
-		padding-top: 0.5714285714285714em;
-	}
 }
 
 
@@ -144,6 +145,7 @@
 .form_input-radio{
 	width: auto;
 	border: none;
+	margin-right: .9em;
 	&:focus{
 		border: none;
 		outline: none;

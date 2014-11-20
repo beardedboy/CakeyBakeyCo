@@ -542,7 +542,7 @@ function cakeybakeyco_setup(){
 		$fields['billing']['billing_email']['input_class'] = array('form_element_input-inline');
 		$fields['billing']['billing_email']['label_class'] = array('form_element_label-inline');
 
-		$fields['billing']['billing_phone']['class'] = array('form_element');
+		$fields['billing']['billing_phone']['class'] = array('form_element-last');
 		$fields['billing']['billing_phone']['input_class'] = array('form_element_input-inline');
 		$fields['billing']['billing_phone']['label_class'] = array('form_element_label-inline');
 
