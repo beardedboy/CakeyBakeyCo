@@ -18,6 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 			_e( 'Delivery', 'woocommerce' );
 		}
 	?></th>
+	
 	<td class = "order_totals_amount">
 		<?php if ( ! empty( $available_methods ) ) : ?>
 

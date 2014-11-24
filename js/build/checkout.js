@@ -1,5 +1,7 @@
 var Checkout = (function($) {
 
+
+
     function publicInit(){
         $('.checkout_input_item_content:gt(0)').addClass('hidden');
     }

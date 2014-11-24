@@ -130,8 +130,14 @@
     .basket_item_variation_label{
         display: none;
     }
+
+
     .basket_item_variation_value, .basket_item_variation_value p{
         margin: 0;
+    }
+
+    .basket_item_variation_value p{
+        font-size: 90%;
     }
 
     .basket_item_price{
@@ -729,24 +735,26 @@
         padding: .5em;
     }
 
+    // Order Summary
 
    .order_review{
         width: 100%;
-        border: 1px solid $black;
+        //border: 1px solid $black;
         margin-bottom: 1.414em;
+        font-size: .9em;
    }
 
    .order_review_header, .order_review_item{
-    border-bottom: 1px solid $black;
+    //border-bottom: 1px solid $black;
    }
 
    .order_review_header{
-        background-color: rgb(245, 245, 245);
+        //background-color: rgb(245, 245, 245);
    }
 
    .order_review_header-name, .order_review_header-quantity, 
    .order_review_header-total, .order_review_item-name, .order_review_item-quantity, .order_review_item-total{
-        padding: .5em 1em;
+        //padding: .5em 1em;
    }
 
    .order_review_header-name{
@@ -755,11 +763,11 @@
    }
 
    .order_review_header-quantity{
-    width: 25%;
+    width: 15%;
    }
 
    .order_review_header-total{
-    width: 25%;
+    width: 15%;
     text-align: right;
    }
 
@@ -773,7 +781,7 @@
     .order_totals{}
 
     .order_totals_label, .order_totals_amount{
-        padding: .5em 1em;
+        padding: .5em 0;
     }
 
     .order_totals_label{
